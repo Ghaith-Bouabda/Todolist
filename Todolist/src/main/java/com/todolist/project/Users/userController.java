@@ -7,16 +7,15 @@ import java.util.Optional;
 @RestController
 public class userController {
  private final UserRepository userRepository ;
-
-    public userController(UserRepository userRepository) {
+private final userService userService ;
+    public userController(UserRepository userRepository, com.todolist.project.Users.userService userService) {
         this.userRepository = userRepository;
+        this.userService = userService;
     }
     @GetMapping("/{id}")
-    public Optional<Users> findUser(
-            @PathVariable("id") Integer id)
+    public Users getuser(@PathVariable("id") Integer id){
+        return userService.findUser(id);
 
- {
-    return userRepository.findById(id);
     }
     @PostMapping("/createuser")
     public Users createUser(@RequestBody Users user) {

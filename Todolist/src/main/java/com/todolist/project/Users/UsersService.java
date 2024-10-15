@@ -5,14 +5,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 @Service
-public class userService {
+public class UserService {
     private final UserRepository userRepository;
 
-    public userService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    public Users findUser(
+    public User findUser(
             @PathVariable("id") Integer id)
 
     {
